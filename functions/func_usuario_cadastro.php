@@ -28,6 +28,15 @@ if (!$rg)  return ErrorMessage("RG não informado");
 if (!$celular)  return ErrorMessage("Celular não informado");
 if (!$data_nasc)  return ErrorMessage("Data de nascimento não informado");
 
+$verificar_campos_unicos = "
+SELECT * FROM clientes WHERE email = '$email' OR cpf_cnpj = '$cpf_cnpj' OR rg = '$rg'";
+
+$result_query_campos_unicos = mysqli_query($con, $verificar_campos_unicos);
+
+if (mysqli_num_rows($result_query_campos_unicos) > 0) {
+    return ErrorMessage("Email, CPF ou RG já cadastrado");
+}
+
 
 $sql = "
 INSERT INTO clientes (nome, endereco, numero, bairro, cidade, estado, email, cpf_cnpj, rg, telefone, celular, data_nasc) 
