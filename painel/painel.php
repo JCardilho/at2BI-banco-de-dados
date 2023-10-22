@@ -23,7 +23,9 @@ verificar_admin();
 
 <body>
     <a href="../index.php">Voltar</a><br />
-    <a href="./produtos/produtos.php">Produtos</a>
+    <a href="./produtos/produtos.php">Produtos</a><br>
+    <a href="./cliente/cliente.php">Clientes</a><br>
+    <a href="./pedidos/pedidos.php">Pedidos</a>
 </body>
 
 </html>
