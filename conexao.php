@@ -3,7 +3,7 @@
 $servidor = 'localhost';
 $usuario = 'root';
 $senha = '';
-$db = 'at2bimestre';
+$db = 'atividade_2bim_db';
 
 $con = mysqli_connect($servidor, $usuario, $senha, $db);
 
