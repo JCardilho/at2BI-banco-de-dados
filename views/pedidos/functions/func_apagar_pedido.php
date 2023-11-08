@@ -15,7 +15,7 @@ mysqli_stmt_bind_param($stmt, "i", $id);
 
 // Execute a consulta
 if (mysqli_stmt_execute($stmt)) {
-    header("Location: ../pedidos.php");
+    header("Location: ../pedidos");
 } else {
     echo "Erro: " . mysqli_error($con);
 }
