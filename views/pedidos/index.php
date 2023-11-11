@@ -50,6 +50,16 @@ include("./functions/func_buscar_pedidos.php");
             color: #000;
         }
     </style>
+
+    <script>
+        function excluirProdId(id) {
+            var confirmacao = confirm("Deseja realmente excluir este pedido?");
+
+            if (confirmacao == true) {
+                window.location.href = "./functions/func_apagar_pedido.php?id_pedido=" + id;
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -227,7 +237,7 @@ include("./functions/func_buscar_pedidos.php");
                                 </td>
                         
                                 <td class="td-icone-acoes">
-                                    <button type="button" class="bi bi-trash-fill icone-acoes cor-destaque" onclick="excluirProdId(' . $ped['id'] . ');"></button>
+                                    <button type="button" class="bi bi-trash-fill icone-acoes cor-destaque" onclick="excluirProdId(' . $ped['id'] . ');" ></button>
                                 </td>
                             </tr>
                             ');
@@ -311,13 +321,17 @@ include("./functions/func_buscar_pedidos.php");
         var data_final = document.getElementById("data_final").value;
 
 
-        if (data_incial == "" && data_final == "") {
+        if (data_inicial == "" && data_final == "") {
+            console.log("entrou1")
             window.location.href = "index.php";
         } else if (data_final == "" && data_inicial != "") {
+            console.log("entrou2")
             window.location.href = "index.php?data_inicial=" + data_inicial;
         } else if (data_inicial == "" && data_final != "") {
+            console.log("entrou3")
             window.location.href = "index.php?data_final=" + data_final;
         } else if (data_inicial != "" && data_final != "") {
+            console.log("entrou4")
             window.location.href = "index.php?data_inicial=" + data_inicial + "&data_final=" + data_final;
 
         }
