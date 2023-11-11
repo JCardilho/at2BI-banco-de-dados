@@ -43,7 +43,7 @@ $result_itens_pedidos = mysqli_query($conexao, $sql_itens_pedidos);
     <?php
     /* exibir o inner join */
     while ($row = mysqli_fetch_array($result_itens_pedidos)) {
-        echo "<p>" . $row['nome'] . " - " . $row['qtde'] . " - " . $row['valor_unitario'] . "</p>";
+        echo "<p>" . "<a href='./functions/func_apagar_items_pedido.php?id_item=" . $row["id_item"] . "&id_pedido=". $row["id_pedido"] . "'>" . "X" . "</a>" . $row['nome'] . " - " . $row['qtde'] . " - " . $row['valor_unitario'] . "</p>";
     }
     ?>
 </div>
