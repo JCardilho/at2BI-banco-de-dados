@@ -8,8 +8,7 @@ $data_final = isset($_GET['data_final']) ? $_GET['data_final'] : "";
 
 $relatorio = isset($_GET['relatorio']) ? $_GET['relatorio'] : false;
 
-
-if ($data_inicial == "" || $data_final == "") {
+if ($data_inicial == "" && $data_final == "") {
     $sql = "SELECT * FROM pedidos INNER JOIN clientes ON pedidos.id_cliente = clientes.id ORDER BY pedidos.data_pedido DESC";
 } elseif ($data_inicial != "" && $data_final != "") {
     $sql = "SELECT * FROM pedidos INNER JOIN clientes ON pedidos.id_cliente = clientes.id WHERE pedidos.data_pedido BETWEEN '$data_inicial' AND '$data_final' ORDER BY pedidos.data_pedido DESC";
