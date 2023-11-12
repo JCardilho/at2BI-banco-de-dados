@@ -179,21 +179,20 @@ include("./functions/func_buscar_pedidos.php");
                     <input type="date" name="data_final" id="data_final" class="form-control" value="<?php echo (isset($_GET['data_final']) ? $_GET['data_final'] : ""); ?>">
                 </a>
 
-                <a href="" data-toggle="modal" data-target="#ModalConsulta" class="btn-tabela bg-destaque cor-primaria">
+                <a href="" data-toggle="modal" data-target="#ModalConsulta" class="btn-tabela bg-destaque cor-primaria justify-content-center d-flex align-items-center">
                     <i class="bi bi-search "></i>
                     <span onclick="buscarPedidos()">Consultar</span>
                 </a>
                 <?php
                 if ($_SESSION['admin'] == 1) {
                     echo ('
-                            <form action="cadastrar_pedidos.php" data-toggle="modal" data-target="#ModalCadastro" class="btn-tabela bg-destaque cor-primaria">
-                                
-                                <button type="submit" class="btn-cadastro"><i class="bi bi-plus-lg "></i> Novo Cadastro</button>
+                            <form action="cadastrar_pedidos.php" data-toggle="modal" data-target="#ModalCadastro" class="btn-tabela bg-destaque cor-primaria justify-content-center d-flex align-items-center">
+                                <button type="submit" class="btn-cadastro justify-content-center d-flex align-items-center"><i class="bi bi-plus-lg "></i> Novo Cadastro</button>
                             </form>
                         ');
                 }
                 ?>
-                <a href="../common/relatorio_clientes_render.php" target="_blank" class="btn-tabela bg-cor-secundaria cor-primaria">
+                <a href="../common/relatorio_clientes_render.php" target="_blank" class="btn-tabela bg-cor-secundaria cor-primaria justify-content-center d-flex align-items-center">
                     <i class="bi bi-file-earmark-pdf "></i>
                     <span>Emitir Relatório</span>
                 </a>
@@ -223,7 +222,7 @@ include("./functions/func_buscar_pedidos.php");
                         foreach ($pedidos as $ped) {
                             echo ('                             
                             <tr>
-                                <th scope="row">' . $ped['id'] . '</th>
+                                <th scope="row">' . $ped['id_ped'] . '</th>
                                 <td id="data_pedido' . $ped['id'] . '">' . $ped['data_pedido'] . '</td>
                                 <td id="id_cliente' . $ped['id'] . '">' . $ped['nome'] . '</td>
                                 <td id="observacao' . $ped['id'] . '">' . $ped['observacao'] . '</td>
@@ -233,11 +232,11 @@ include("./functions/func_buscar_pedidos.php");
                             if ($_SESSION['admin'] == 1) {
                                 echo ('
                                 <td class="td-icone-acoes">
-                                    <a href="./cadastrar_item_pedidos.php?id=' . $ped['id'] . '" type="button" class="bi bi-pencil-fill icone-acoes cor-secundaria"></a>
+                                    <a href="./cadastrar_item_pedidos.php?id=' . $ped['id_ped'] . '" type="button" class="bi bi-pencil-fill icone-acoes cor-secundaria"></a>
                                 </td>
                         
                                 <td class="td-icone-acoes">
-                                    <button type="button" class="bi bi-trash-fill icone-acoes cor-destaque" onclick="excluirProdId(' . $ped['id'] . ');" ></button>
+                                    <button type="button" class="bi bi-trash-fill icone-acoes cor-destaque" onclick="excluirProdId(' . $ped['id_ped'] . ');" ></button>
                                 </td>
                             </tr>
                             ');
