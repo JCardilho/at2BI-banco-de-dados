@@ -88,8 +88,7 @@ try {
 
     $_SESSION['erro_cadastro'] = "<strong>ERRO:</strong><br> Cadastro não foi realizado!";
     header("Location: ../views/login.php");
-
-    exit;
+    
 } finally {
     mysqli_close($conexao);
 }
